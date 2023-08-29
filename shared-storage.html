@@ -2,18 +2,48 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <style>
+        .container {
+            padding: 36px;
+            max-width: 300px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .button {
+            padding: 12px;
+            color: white;
+            background-color: tomato;
+            font-size: 14px;
+            margin-top: 12px;
+        }
+    </style>
     <title>Shared Storage test</title>
   </head>
   <body>
+    <div class="container">
+        <button class="button" onclick="resetSharedStorage()">Reset Shared Storage</button>
+        <button class="button" onclick="setSharedStorage()">Set Shared Storage</button>
+        <button class="button" onclick="runWorklet()">Run Shared Storage Worklet</button>
+    </div>
+
     <script>
-        async function runSharedStorageTest() {
-          await window.sharedStorage.set('known-customer', 'emmanuel.garcia@test.com');
-          console.log('known-customer set');
-          await window.sharedStorage.worklet.addModule('known-customer.js');
-          window.sharedStorage.run('known-customer');
+        window.sharedStorage.worklet.addModule('known-customer.js');
+
+        async function resetSharedStorage() {
+            console.log('resetSharedStorage');
+            await window.sharedStorage.delete('known-customer');
         }
 
-        runSharedStorageTest();
+        async function setSharedStorage() {
+            console.log('setSharedStorage');
+            await window.sharedStorage.set('known-customer', 'emmanuel.garcia@test.com');
+        }
+
+        async function runWorklet() {
+            console.log('runWorklet');
+            window.sharedStorage.run('known-customer');
+        }
       </script>
   </body>
 </html>
