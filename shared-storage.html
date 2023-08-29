@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Shared Storage test</title>
+  </head>
+  <body>
+    <script>
+        async function runSharedStorageTest() {
+          await window.sharedStorage.set('known-customer', 'emmanuel.garcia@test.com');
+          console.log('known-customer set');
+          await window.sharedStorage.worklet.addModule('known-customer.js');
+          window.sharedStorage.run('known-customer');
+        }
+
+        runSharedStorageTest();
+      </script>
+  </body>
+</html>
