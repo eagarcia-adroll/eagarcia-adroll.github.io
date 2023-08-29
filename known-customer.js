@@ -3,7 +3,7 @@ class KnownCustomerOperation {
         const knownCustomer = await sharedStorage.get('known-customer');
         console.log(knownCustomer);
         console.log(data);
-        console.log(data.navigator);
+        console.log(data.joinAdInterestGroup);
     }
 }
 
