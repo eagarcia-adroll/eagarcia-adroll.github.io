@@ -1,9 +1,8 @@
 class KnownCustomerOperation {
-    async run(data) {
+    async run() {
         const knownCustomer = await sharedStorage.get('known-customer');
         console.log(knownCustomer);
-        console.log(data);
-        console.log(data.joinAdInterestGroup);
+        console.log(navigator);  // ReferenceError
     }
 }
 

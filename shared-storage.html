@@ -42,9 +42,7 @@
 
         async function runWorklet() {
             console.log('runWorklet');
-            window.sharedStorage.run('known-customer', {
-                data: { joinAdInterestGroup: navigator.joinAdInterestGroup },
-            });
+            window.sharedStorage.run('known-customer');
         }
       </script>
   </body>
