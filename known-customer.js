@@ -1,9 +1,9 @@
 class KnownCustomerOperation {
-    async run() {
+    async run(data) {
         const knownCustomer = await sharedStorage.get('known-customer');
         console.log(knownCustomer);
-        console.log(privateAggregation);
-        console.log(navigator);
+        console.log(data);
+        console.log(data.navigator);
     }
 }
 
